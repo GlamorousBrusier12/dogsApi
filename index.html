@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doggy Style</title>
+</head>
+<body>
+    <div id="container">
+        <div id="fetch-button">
+            <button id="fetch">Fetch</button>      
+        </div>
+        <div id="image" style="margin: 1rem; width: 400px; height: 400px;">
+        <img src="" alt="" style="width: 100%;"></div>
+    </div>
+</body>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        function doggyImage(params) {
+            // method-1 using noraml Java Script
+
+
+
+            // var req = new XMLHttpRequest();
+            // req.onload = function (params) {
+            //     var imageUrl = JSON.parse(req.response).message;
+            //     $('#image img').attr('src',imageUrl);
+            // }
+            // req.open('get','https://dog.ceo/api/breeds/image/random',true);
+            // req.send();
+
+            // method-2 using jquery
+
+
+
+            // $.ajax({
+            //     method: 'get',
+            //     url: 'https://dog.ceo/api/breeds/image/random',
+            //     success: function(data){
+            //         var imageUrl = data.message;
+            //         $('#image img ').attr('src',imageUrl);
+            //     }
+            // })
+            
+            // METHOD-3
+
+            $.get('https://dog.ceo/api/breeds/image/random',function(data){
+                    var imageUrl = data.message;
+                    $('#image img ').attr('src',imageUrl);
+                })
+
+        }
+        $('#fetch').on('click',doggyImage);
+    </script>
+</html>
